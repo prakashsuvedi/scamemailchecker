@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scam Email Checker - DigitalScamAlert.com</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Scam Email Checker</h1>
+    <p>
+      Paste the content of a suspicious email below to analyze it for common
+      scam indicators.
+    </p>
+    <textarea
+      id="emailContent"
+      placeholder="Paste email content here..."
+    ></textarea>
+    <button onclick="checkEmail()">Check Email</button>
+
+    <div class="result" id="result">
+      <!-- Results will be displayed here -->
+    </div>
+
+    <script src="https://unpkg.com/compromise"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
