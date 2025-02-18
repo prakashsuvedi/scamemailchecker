@@ -1,0 +1,2 @@
+# scamemaichecker
+Created with CodeSandbox
