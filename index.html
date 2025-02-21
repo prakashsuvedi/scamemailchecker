@@ -3,26 +3,133 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scam Email Checker - DigitalScamAlert.com</title>
+    <title>Scam Checker - Digital Scam Alert</title>
+    <meta
+      name="description"
+      content="Protect yourself from AI scams, phishing, and fraud in 2025 with Prakash Suvedi’s Digital Scam Alert Scam Checker. Check emails, texts, images, and social posts in any language for suspicious content now!"
+    />
+    <meta
+      name="keywords"
+      content="scam checker, AI scams, phishing 2025, cybersecurity trends 2025, online safety, Nepal scams, scam prevention, image scam detection, social media scams, Prakash Suvedi"
+    />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <!-- Add your logo as a favicon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- For social and safety icons -->
   </head>
   <body>
-    <h1>Scam Email Checker</h1>
-    <p>
-      Paste the content of a suspicious email below to analyze it for common
-      scam indicators.
-    </p>
-    <textarea
-      id="emailContent"
-      placeholder="Paste email content here..."
-    ></textarea>
-    <button onclick="checkEmail()">Check Email</button>
+    <header>
+      <h1 class="header-title">Scam Checker by Prakash Suvedi</h1>
+    </header>
+    <main>
+      <p class="intro-text">
+        Analyze suspicious emails, texts, images, or social posts for scam
+        indicators, including AI scams, Nepal-specific fraud, and social media
+        threats, created by Prakash Suvedi.
+      </p>
 
-    <div class="result" id="result">
-      <!-- Results will be displayed here -->
-    </div>
+      <!-- Image Upload Section -->
+      <div class="upload-section">
+        <label for="imageUpload"
+          >Upload Screenshot or Image (e.g., email, SMS, social post):</label
+        >
+        <input
+          type="file"
+          id="imageUpload"
+          accept="image/png, image/jpeg"
+          aria-label="Upload image for scam analysis"
+        />
+        <div id="imagePreview" class="image-preview"></div>
+      </div>
 
+      <!-- Text and Email Input Section -->
+      <form
+        id="scamCheckerForm"
+        class="input-form"
+        aria-label="Scam Checker Form"
+      >
+        <label for="emailContent">Enter Text, Email, or URL Manually:</label>
+        <textarea
+          id="emailContent"
+          name="emailContent"
+          placeholder="Paste text, email, URL, or social post here (e.g., SMS, chat, any language)... Check for scams!"
+          rows="6"
+          aria-required="true"
+        ></textarea>
+        <label for="emailId">Enter Email ID (Optional):</label>
+        <input
+          type="email"
+          id="emailId"
+          name="emailId"
+          placeholder="e.g., sender@example.com"
+          aria-label="Enter email ID for analysis"
+        />
+        <button type="submit" aria-label="Check for Scams">
+          Check for Scams
+        </button>
+      </form>
+      <div id="progressBar" class="progress-bar" style="display: none">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+      <div class="result-container" id="result" aria-live="polite">
+        <!-- Results will be displayed here -->
+      </div>
+      <div id="feedbackSection" class="feedback-section" style="display: none">
+        <h3>Provide Feedback</h3>
+        <label for="firstName">First Name (Optional):</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          placeholder="Your first name"
+          aria-label="First name (optional)"
+        />
+        <label for="lastName">Last Name (Optional):</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          placeholder="Your last name"
+          aria-label="Last name (optional)"
+        />
+        <label for="feedbackEmail">Email ID (Optional):</label>
+        <input
+          type="email"
+          id="feedbackEmail"
+          name="feedbackEmail"
+          placeholder="Your email (optional)"
+          aria-label="Email ID (optional)"
+        />
+        <label for="feedbackText">Feedback Text (Required):</label>
+        <textarea
+          id="feedbackText"
+          placeholder="Share your feedback or suggestions..."
+          rows="4"
+          aria-label="Feedback text (required)"
+          required
+        ></textarea>
+        <button id="sendFeedback" aria-label="Send Feedback">
+          Send Feedback
+        </button>
+        <p id="feedbackStatus"></p>
+      </div>
+    </main>
+    <footer>
+      <p>
+        © 2025 Digital Scam Alert. Developed by Prakash Suvedi. Follow us on X:
+        <a href="https://x.com/digitalscamalert" target="_blank"
+          >@digitalscamalert</a
+        >
+      </p>
+    </footer>
+    <script src="https://unpkg.com/tesseract.js@v2.1.1/dist/tesseract.min.js"></script>
+    <!-- OCR Library -->
     <script src="https://unpkg.com/compromise"></script>
+    <!-- NLP Library -->
     <script src="script.js"></script>
   </body>
 </html>
