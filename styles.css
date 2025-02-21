@@ -1,44 +1,184 @@
+/* Existing CSS (base styles unchanged) */
+
+/* New/Updated Styles for Alignment, White h1, and Feedback Form */
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+  transition: all 0.3s ease;
 }
 
-textarea {
-  width: 100%;
-  height: 200px;
+header {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #ff0000; /* Red header for branding */
+  color: white;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  animation: fadeIn 0.5s ease-in;
+}
+
+.header-title {
+  font-size: 1.8em; /* Reduced for smaller, readable text */
+  font-weight: bold;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow for text */
+  color: white; /* Ensure white text on red background */
+  animation: bounce 0.5s ease-in-out;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.intro-text {
+  font-size: 1.1em;
+  margin: 20px 0;
+  text-align: center;
   padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.input-form,
+.result-container,
+.upload-section,
+.progress-bar,
+.tips,
+.feedback-section {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  animation: slideUp 0.5s ease-out;
+}
+
+footer {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in;
+}
+
+h1 {
+  color: #ff0000; /* Red for danger, matching branding */
+  font-size: 2em; /* Reduced for consistency with header */
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s ease;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+textarea,
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 2px solid #ddd;
+  border-radius: 4px;
   font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: #007bff; /* Blue for focus, safety */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3), inset 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 button {
   margin-top: 10px;
-  padding: 10px 20px;
+  padding: 12px 24px;
   font-size: 16px;
   cursor: pointer;
+  background-color: #ff0000; /* Red for danger/action */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for button */
 }
 
-.result {
+button:hover {
+  background-color: #cc0000; /* Darker red on hover */
+  transform: scale(1.05); /* Slightly enlarge the button */
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+button:active {
+  background-color: #990000; /* Even darker red when clicked */
+  transform: scale(0.95); /* Slightly shrink the button */
+  box-shadow: none;
+}
+
+.result-container {
   margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 15px;
+  border: 2px solid #ccc;
   background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  animation: fadeIn 0.5s ease-in;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.result-container.hidden {
+  display: none;
+  opacity: 0;
 }
 
 .highlight {
-  background-color: yellow;
+  background-color: #ffff99; /* Light yellow for highlights */
   font-weight: bold;
+  padding: 2px;
+  border-radius: 2px;
+  animation: highlightPulse 1s infinite alternate;
+  box-shadow: 0 0 3px rgba(255, 255, 0, 0.5); /* Subtle shadow for highlights */
 }
 
 .risk-low {
-  color: green;
+  color: #28a745; /* Green for safe */
 }
 
 .risk-medium {
-  color: orange;
+  color: #ffc107; /* Orange for caution */
 }
 
 .risk-high {
-  color: red;
+  color: #dc3545; /* Red for danger */
 }
 
 .risk-bar {
@@ -48,38 +188,349 @@ button {
   border-radius: 10px;
   overflow: hidden;
   margin: 10px 0;
+  animation: slideIn 0.5s ease-out;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .risk-bar-fill {
   height: 100%;
-  transition: width 0.5s ease;
+  transition: width 0.5s ease, background-color 0.3s ease;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
 }
-/* Button Styling */
-button {
+
+.progress-bar {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #ff0000; /* Red for progress */
+  width: 0%;
+  transition: width 0.3s linear;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+}
+
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #ff0000; /* Red to match branding */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 10px;
+  vertical-align: middle;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.3); /* Subtle shadow */
+}
+
+.upload-section label,
+.feedback-section label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s ease;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#imageUpload {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#imageUpload:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3), 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.image-preview {
+  max-width: 100%;
+  margin-top: 10px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+  animation: fadeIn 0.5s ease-in;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.image-preview img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.platform-icon {
+  margin-left: 5px;
+  font-size: 1.2em;
+  vertical-align: middle;
+  animation: bounce 0.5s ease-in-out;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.platform-note {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 10px;
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  animation: slideIn 0.5s ease-out;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: left;
+}
+
+/* Email Domain Styles */
+.domain-low {
+  color: #28a745; /* Green for safe */
+  font-weight: bold;
+}
+
+.domain-high {
+  color: #dc3545; /* Red for danger */
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Tooltip for Professional Look */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #ff0000; /* Red for danger */
+  color: white;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  transform: translateY(10px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Rate Limit Warning */
+.rate-limit-warning {
+  font-size: 0.9em;
+  color: #dc3545;
+  margin-top: 10px;
+  background-color: #ffebee;
+  padding: 5px 10px;
+  border-radius: 4px;
+  animation: fadeIn 0.5s ease-in;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: left;
+}
+
+/* Tips Section with Icons */
+.tips {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  animation: slideUp 0.5s ease-out;
+  text-align: left;
+}
+
+.tips ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tips li {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.tips li:hover {
+  transform: translateX(10px);
+}
+
+.tip-icon {
+  margin-right: 10px;
+  font-size: 1.2em;
+  color: #ff0000; /* Red for danger/safety */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Feedback Section */
+.feedback-section {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  animation: slideUp 0.5s ease-out;
+  display: none;
+  text-align: left;
+}
+
+.feedback-section label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s ease;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#firstName,
+#lastName,
+#feedbackEmail {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+}
+
+#firstName:focus,
+#lastName:focus,
+#feedbackEmail:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3), inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#feedbackText {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: vertical;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+}
+
+#feedbackText:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3), inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#sendFeedback {
   margin-top: 10px;
   padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #007bff; /* Blue background */
-  color: white; /* White text */
+  background-color: #007bff;
+  color: white;
   border: none;
   border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+  animation: bounce 0.5s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
-/* Hover Effect */
-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-  transform: scale(1.05); /* Slightly enlarge the button */
+#sendFeedback:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
-/* Active Effect (when clicked) */
-button:active {
-  background-color: #004080; /* Even darker blue when clicked */
-  transform: scale(0.95); /* Slightly shrink the button */
+#sendFeedback:active {
+  background-color: #003d7a;
+  transform: scale(0.95);
+  box-shadow: none;
 }
 
-/* Loading Animation */
+#feedbackStatus {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #666;
+  animation: fadeIn 0.5s ease-in;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: left;
+}
+
+/* Animations (unchanged, see previous version) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -89,13 +540,49 @@ button:active {
   }
 }
 
-.loading {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-top: 3px solid white;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-left: 10px;
+@keyframes highlightPulse {
+  0% {
+    background-color: #ffff99;
+  }
+  100% {
+    background-color: #ffeb3b;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  .header-title {
+    font-size: 1.5em;
+  }
+  .intro-text,
+  .input-form,
+  .result-container,
+  .upload-section,
+  .progress-bar,
+  .tips,
+  .feedback-section {
+    margin: 10px;
+    padding: 10px;
+  }
+  textarea {
+    height: 150px;
+  }
+  button {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+  .tip-icon {
+    font-size: 1em;
+  }
 }
