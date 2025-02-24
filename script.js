@@ -17,7 +17,7 @@ function escapeRegExp(string) {
 }
 
 // Server URL for communication with the back-end
-const SERVER_URL = "https://c9kljr-3000.csb.app";
+const SERVER_URL = "https://scam-email-checker-server.herokuapp.com"; // Updated to Heroku URL
 
 // Toggle feedback section (moved outside DOMContentLoaded for global access)
 function toggleFeedback() {
@@ -75,23 +75,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Show progress bar during analysis with enhanced debugging
   function showProgress(percentage = 0, riskScore = null) {
+    // Get or create the progress bar elements
+    let progressBar = document.getElementById("progressBar");
+    let progressFill = document.getElementById("progressFill");
+
     console.log("Attempting to show progress bar:", {
       progressBarExists: !!progressBar,
       progressFillExists: !!progressFill,
     });
+
     if (!progressBar || !progressFill) {
-      console.error(
-        'Progress bar elements not found in DOM. Check IDs ("progressBar", "progressFill") and HTML placement.'
+      console.warn(
+        'Progress bar elements not found in DOM. Creating them dynamically...'
       );
-      // Try to find elements again to handle potential loading issues
-      const fallbackProgressBar = document.getElementById("progressBar");
-      const fallbackProgressFill = document.getElementById("progressFill");
-      if (!fallbackProgressBar || !fallbackProgressFill) {
-        console.error("Fallback elements not found either. Aborting.");
+      const resultDiv = document.getElementById("result");
+      if (!resultDiv) {
+        console.error("Result div not found in DOM. Aborting.");
         return;
       }
-      progressBar = fallbackProgressBar; // Now allowed with `let`
-      progressFill = fallbackProgressFill; // Now allowed with `let`
+
+      // Create and append progress bar elements if they don’t exist
+      const riskBar = document.createElement("div");
+      riskBar.className = "risk-bar";
+
+      const progressBarElement = document.createElement("div");
+      progressBarElement.id = "progressBar";
+      progressBarElement.className = "progress-bar";
+
+      const progressFillElement = document.createElement("div");
+      progressFillElement.id = "progressFill";
+      progressFillElement.className = "progress-fill analyzing";
+
+      progressBarElement.appendChild(progressFillElement);
+      riskBar.appendChild(progressBarElement);
+      resultDiv.insertBefore(riskBar, resultDiv.firstChild); // Insert at the top of #result
+
+      progressBar = progressBarElement;
+      progressFill = progressFillElement;
     }
 
     progressBar.style.display = "block";
@@ -136,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
     checkButton.disabled = true;
     checkButton.innerHTML = 'Checking Email <div class="loading"></div>';
     console.log("Starting text analysis, showing progress bar...");
-    showProgress(0); // Start at 0% (analyzing)
+    showProgress(0); // Initial call to create or show the progress bar
 
     try {
       // Simulate progress (0% → 100%)
@@ -226,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
     checkButton.disabled = true;
     checkButton.innerHTML = 'Extracting Text <div class="loading"></div>';
     console.log("Starting image extraction, showing progress bar...");
-    showProgress(0); // Start at 0% (analyzing)
+    showProgress(0); // Initial call to create or show the progress bar
 
     try {
       let progress = 0;
@@ -235,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log("Tesseract progress:", m);
           if (m.progress !== undefined) {
             progress = Math.round(m.progress * 100);
-            showProgress(progress);
+            showProgress(progress); // Update progress during OCR
           }
         },
       });
@@ -262,9 +282,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const platform = detectSocialPlatform(cleanedText);
       emailContent.value = cleanedText;
 
-      // Analyze the extracted text (no email ID from image for now)
+      // Analyze the extracted text
       const analysis = await analyzeScam(cleanedText, null, platform);
-      // Update to final risk score after extraction
       console.log(
         "Showing final risk score in progress bar:",
         analysis.riskScore
@@ -273,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
       displayResults(analysis, result.data.lang || "eng");
     } catch (error) {
       console.error("Tesseract/OCR or analysis error:", error);
-      showProgress(100);
+      showProgress(100); // Show 100% on error
       showResult(
         `Error analyzing extracted text: ${
           error.message ||
@@ -1106,7 +1125,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ); // Allow punctuation
       if (phraseRegex.test(analysisInput.toLowerCase())) {
         keywordScore += 60; // Maintain or increase for phrases
-        reasons.push(`Contains scam phrase: ${phrase} (or similar variation)`);
+        reasons.push(
+          `Contains scam phrase: ${phrase} (or similar variation)`
+        );
         console.log(`Matched phrase: ${phrase}`);
       }
     });
@@ -1125,7 +1146,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const isAfrican = /africa|african|central african republic|bangui/i.test(
         sentence.toLowerCase()
       );
-      const hasDeceasedClient = /deceased|client/i.test(sentence.toLowerCase());
+      const hasDeceasedClient = /deceased|client/i.test(
+        sentence.toLowerCase()
+      );
       const hasEstateInheritance = /estate|inheritance|heir/i.test(
         sentence.toLowerCase()
       );
