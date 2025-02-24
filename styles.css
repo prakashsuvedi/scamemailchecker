@@ -1,489 +1,316 @@
-/* Existing CSS (base styles unchanged) */
-
-/* New/Updated Styles for Alignment, White h1, and Feedback Form */
+/* Base Styles */
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 20px;
-  background-color: #f5f5f5;
-  color: #333;
+  padding: 0;
+  background-color: #000; /* Black background for theme */
+  color: #fff; /* White text for contrast */
   line-height: 1.6;
-  transition: all 0.3s ease;
 }
 
 header {
-  max-width: 800px;
-  margin: 0 auto;
+  background-color: #dc3545; /* Red header for theme */
+  padding: 20px;
   text-align: center;
-  padding: 20px 0;
-  background-color: #ff0000; /* Red header for branding */
-  color: white;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-  animation: fadeIn 0.5s ease-in;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  animation: slideDown 0.5s ease-in;
 }
 
 .header-title {
-  font-size: 1.8em; /* Reduced for smaller, readable text */
-  font-weight: bold;
+  color: #fff; /* White text for contrast */
   margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow for text */
-  color: white; /* Ensure white text on red background */
-  animation: bounce 0.5s ease-in-out;
+  font-size: 2em;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow */
 }
 
 main {
   max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+  margin: 20px auto;
+  padding: 20px;
   animation: fadeIn 0.5s ease-in;
 }
 
 .intro-text {
-  font-size: 1.1em;
-  margin: 20px 0;
   text-align: center;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-bottom: 20px;
+  color: #fff; /* White text for contrast */
+  font-size: 1.1em;
 }
 
-.input-form,
-.result-container,
 .upload-section,
-.progress-bar,
-.tips,
-.feedback-section {
-  max-width: 600px;
-  margin: 20px auto;
+.input-form {
+  background-color: #1a1a1a; /* Dark gray background for contrast */
   padding: 20px;
-  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  animation: slideUp 0.5s ease-out;
-}
-
-footer {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  animation: fadeIn 0.5s ease-in;
-}
-
-h1 {
-  color: #ff0000; /* Red for danger, matching branding */
-  font-size: 2em; /* Reduced for consistency with header */
-  margin-bottom: 10px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-}
-
-p {
-  font-size: 1.1em;
-  margin-bottom: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  margin-bottom: 20px;
+  animation: slideUp 0.5s ease-in;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  color: #fff; /* White text for contrast */
   font-weight: bold;
-  color: #333;
-  transition: color 0.3s ease;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-textarea,
-input[type="text"],
-input[type="email"] {
+input[type="file"],
+input[type="email"],
+textarea {
   width: 100%;
   padding: 10px;
-  margin: 5px 0;
-  border: 2px solid #ddd;
+  margin-bottom: 15px;
   border-radius: 4px;
-  font-size: 16px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  background-color: #fff;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+  font-size: 1em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #fff; /* White background for contrast */
+  color: #000; /* Black text for readability */
 }
 
-textarea:focus,
-input[type="text"]:focus,
+input[type="file"] {
+  border: 1px solid #dc3545; /* Red border for file input */
+  transition: border-color 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #ff0000; /* Darker red on hover */
+}
+
+input[type="email"] {
+  border: 2px solid #dc3545; /* Red border for email input */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 input[type="email"]:focus {
-  border-color: #007bff; /* Blue for focus, safety */
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3), inset 0 0 5px rgba(0, 0, 0, 0.1);
+  border-color: #ff0000; /* Darker red on focus */
+  box-shadow: 0 0 8px rgba(220, 53, 69, 0.5); /* Enhanced shadow on focus */
+}
+
+/* Updated Styles for Textarea Border */
+.input-form textarea {
+  width: 100%;
+  max-width: 600px; /* Limit width for better mobile responsiveness */
+  min-height: 150px; /* Ensure enough space for text */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #dc3545; /* Red border for consistency with theme */
+  border-radius: 8px; /* Rounded corners for modern look */
+  font-size: 1em;
+  resize: vertical; /* Allow vertical resizing only */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background-color: #fff; /* White background for contrast */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.input-form textarea:focus {
+  outline: none; /* Remove default outline */
+  border-color: #ff0000; /* Darker red on focus */
+  box-shadow: 0 0 8px rgba(220, 53, 69, 0.5); /* Enhanced shadow on focus */
 }
 
 button {
-  margin-top: 10px;
-  padding: 12px 24px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #ff0000; /* Red for danger/action */
-  color: white;
+  background-color: #dc3545; /* Red button for theme */
+  color: #fff; /* White text for contrast */
+  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.2s ease,
-    box-shadow 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for button */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background-color: #cc0000; /* Darker red on hover */
-  transform: scale(1.05); /* Slightly enlarge the button */
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  background-color: #ff0000; /* Darker red on hover */
+  transform: scale(1.05); /* Slight scale for interaction */
 }
 
-button:active {
-  background-color: #990000; /* Even darker red when clicked */
-  transform: scale(0.95); /* Slightly shrink the button */
-  box-shadow: none;
-}
-
-.result-container {
-  margin-top: 20px;
-  padding: 15px;
-  border: 2px solid #ccc;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  animation: fadeIn 0.5s ease-in;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.result-container.hidden {
-  display: none;
-  opacity: 0;
-}
-
-.highlight {
-  background-color: #ffff99; /* Light yellow for highlights */
-  font-weight: bold;
-  padding: 2px;
-  border-radius: 2px;
-  animation: highlightPulse 1s infinite alternate;
-  box-shadow: 0 0 3px rgba(255, 255, 0, 0.5); /* Subtle shadow for highlights */
-}
-
-.risk-low {
-  color: #28a745; /* Green for safe */
-}
-
-.risk-medium {
-  color: #ffc107; /* Orange for caution */
-}
-
-.risk-high {
-  color: #dc3545; /* Red for danger */
-}
-
-.risk-bar {
-  width: 100%;
-  height: 20px;
-  background-color: #f0f0f0;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 10px 0;
-  animation: slideIn 0.5s ease-out;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.risk-bar-fill {
-  height: 100%;
-  transition: width 0.5s ease, background-color 0.3s ease;
-  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
-}
-
-.progress-bar {
-  max-width: 600px;
-  margin: 20px auto;
-  background-color: #f0f0f0;
-  border-radius: 10px;
-  overflow: hidden;
-  height: 20px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.5s ease-in;
-}
-
-.progress-fill {
-  height: 100%;
-  background-color: #ff0000; /* Red for progress */
-  width: 0%;
-  transition: width 0.3s linear;
-  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+button:disabled {
+  background-color: #6c757d; /* Gray for disabled state */
+  cursor: not-allowed;
 }
 
 .loading {
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-top: 3px solid #ff0000; /* Red to match branding */
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
+  border: 2px solid #fff;
+  border-color: #fff transparent #fff transparent;
   animation: spin 1s linear infinite;
   margin-left: 10px;
   vertical-align: middle;
-  box-shadow: 0 0 5px rgba(255, 0, 0, 0.3); /* Subtle shadow */
-}
-
-.upload-section label,
-.feedback-section label {
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #333;
-  transition: color 0.3s ease;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-#imageUpload {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 2px solid #ddd;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-#imageUpload:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3), 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .image-preview {
   max-width: 100%;
   margin-top: 10px;
-  border: 2px solid #ddd;
   border-radius: 4px;
-  overflow: hidden;
-  transition: opacity 0.3s ease;
-  animation: fadeIn 0.5s ease-in;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
 }
 
 .image-preview img {
   max-width: 100%;
   height: auto;
-  display: block;
-}
-
-.platform-icon {
-  margin-left: 5px;
-  font-size: 1.2em;
-  vertical-align: middle;
-  animation: bounce 0.5s ease-in-out;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.platform-note {
-  font-size: 0.9em;
-  color: #666;
-  margin-top: 10px;
-  background-color: #f0f0f0;
-  padding: 5px 10px;
   border-radius: 4px;
-  display: flex;
-  align-items: center;
-  animation: slideIn 0.5s ease-out;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  text-align: left;
 }
 
-/* Email Domain Styles */
-.domain-low {
-  color: #28a745; /* Green for safe */
-  font-weight: bold;
+.result-container {
+  background-color: #1a1a1a; /* Dark gray background for contrast */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  margin-top: 20px;
+  display: none;
+  animation: slideUp 0.5s ease-in;
+}
+
+.result {
+  color: #fff; /* White text for contrast */
+  text-align: left; /* Left-aligned results */
+}
+
+.result.high-risk {
+  color: #dc3545; /* Red for high risk */
+}
+
+.result.medium-risk {
+  color: #ffc107; /* Yellow/orange for medium risk */
+}
+
+.result.low-risk {
+  color: #28a745; /* Green for low risk */
+}
+
+.language-note {
+  font-style: italic;
+  color: #ccc; /* Light gray for notes */
+  margin-top: 10px;
 }
 
 .domain-high {
-  color: #dc3545; /* Red for danger */
+  color: #dc3545; /* Red for high-risk domains */
   font-weight: bold;
-  text-decoration: underline;
 }
 
-/* Tooltip for Professional Look */
-.tooltip {
-  position: relative;
-  display: inline-block;
-  cursor: help;
+.domain-low {
+  color: #28a745; /* Green for low-risk domains */
+  font-weight: bold;
 }
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 200px;
-  background-color: #ff0000; /* Red for danger */
-  color: white;
-  text-align: center;
-  padding: 5px 10px;
-  border-radius: 4px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -100px;
-  opacity: 0;
-  transition: opacity 0.3s, transform 0.3s;
-  transform: translateY(10px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Rate Limit Warning */
 .rate-limit-warning {
-  font-size: 0.9em;
-  color: #dc3545;
-  margin-top: 10px;
-  background-color: #ffebee;
-  padding: 5px 10px;
-  border-radius: 4px;
-  animation: fadeIn 0.5s ease-in;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  text-align: left;
+  color: #ffc107; /* Yellow/orange for warnings */
+  font-style: italic;
 }
 
-/* Tips Section with Icons */
-.tips {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 15px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  animation: slideUp 0.5s ease-out;
-  text-align: left;
+.platform-note {
+  color: #fff; /* White text for platform notes */
+  font-style: italic;
+  margin-top: 5px;
 }
 
-.tips ul {
-  list-style: none;
-  padding: 0;
+.platform-icon {
+  margin-right: 5px;
 }
 
-.tips li {
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-  transition: transform 0.3s ease;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.tips li:hover {
-  transform: translateX(10px);
-}
-
-.tip-icon {
-  margin-right: 10px;
-  font-size: 1.2em;
-  color: #ff0000; /* Red for danger/safety */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-}
-
-/* Feedback Section */
 .feedback-section {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 15px;
-  background-color: #fff;
+  background-color: #1a1a1a; /* Dark gray background for contrast */
+  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  animation: slideUp 0.5s ease-out;
-  display: none;
-  text-align: left;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  margin-top: 20px;
+  animation: slideUp 0.5s ease-in;
+}
+
+.feedback-section h3 {
+  color: #fff; /* White text for contrast */
+  margin-top: 0;
 }
 
 .feedback-section label {
+  color: #fff; /* White text for contrast */
   margin-bottom: 5px;
-  font-weight: bold;
-  color: #333;
-  transition: color 0.3s ease;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-#firstName,
-#lastName,
-#feedbackEmail {
+.feedback-section input,
+.feedback-section textarea {
   width: 100%;
-  padding: 10px;
-  margin: 5px 0;
-  border: 2px solid #ddd;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #dc3545; /* Red border for feedback inputs */
   border-radius: 4px;
-  font-size: 16px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  background-color: #fff;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+  font-size: 1em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #fff; /* White background for contrast */
+  color: #000; /* Black text for readability */
 }
 
-#firstName:focus,
-#lastName:focus,
-#feedbackEmail:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3), inset 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-#feedbackText {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 2px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
-  resize: vertical;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
-}
-
-#feedbackText:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3), inset 0 0 5px rgba(0, 0, 0, 0.1);
+.feedback-section textarea {
+  min-height: 100px;
+  resize: vertical; /* Allow vertical resizing only */
 }
 
 #sendFeedback {
-  margin-top: 10px;
+  background-color: #dc3545; /* Red button for theme */
+  color: #fff; /* White text for contrast */
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease,
-    box-shadow 0.3s ease;
-  animation: bounce 0.5s ease-in-out;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  font-size: 1em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.feedback-btn {
+  background-color: #007bff; /* Blue for feedback button */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s;
 }
 
+.feedback-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
 #sendFeedback:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-}
-
-#sendFeedback:active {
-  background-color: #003d7a;
-  transform: scale(0.95);
-  box-shadow: none;
+  background-color: #ff0000; /* Darker red on hover */
+  transform: scale(1.05); /* Slight scale for interaction */
 }
 
 #feedbackStatus {
+  color: #fff; /* White text for contrast */
   margin-top: 10px;
-  font-size: 0.9em;
-  color: #666;
-  animation: fadeIn 0.5s ease-in;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  text-align: left;
+  text-align: center;
 }
 
-/* Animations (unchanged, see previous version) */
+footer {
+  background-color: #dc3545; /* Red footer for theme */
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  animation: slideUp 0.5s ease-in;
+}
+
+footer p {
+  margin: 0;
+  color: #fff; /* White text for contrast */
+}
+
+footer a {
+  color: #fff; /* White links for contrast */
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ff0000; /* Red on hover */
+}
+
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -504,30 +331,14 @@ button:active {
   }
 }
 
-@keyframes slideIn {
+@keyframes slideDown {
   from {
-    transform: translateX(-20px);
+    transform: translateY(-20px);
     opacity: 0;
   }
   to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
     transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-5px);
-  }
-  60% {
-    transform: translateY(-3px);
+    opacity: 1;
   }
 }
 
@@ -540,49 +351,170 @@ button:active {
   }
 }
 
+/* Ensure highlighted content is visible and readable */
+.highlighted-content {
+  border: 2px solid #ccc;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #333; /* Dim black (dark gray) for non-highlighted text, readable on white */
+}
+
+/* Restore highlighted text visibility with black text on yellow background */
+.highlighted-content .highlight,
+.highlighted-content .highlight-sentence {
+  color: #000; /* Black text for highlighted words/phrases for readability */
+  background-color: #ffff99; /* Light yellow for keywords/phrases */
+  font-weight: bold;
+  padding: 2px;
+  border-radius: 2px;
+  animation: highlightPulse 1s infinite alternate;
+  box-shadow: 0 0 3px rgba(255, 255, 0, 0.5); /* Subtle shadow for highlights */
+}
+
+/* Ensure progress bar remains visible with final risk score and stays in result-container */
+.result-container .progress-bar {
+  max-width: 600px;
+  margin: 15px 0; /* Space above and below the progress bar within result-container */
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: block !important; /* Force display with high specificity */
+  visibility: visible !important; /* Force visibility with high specificity */
+}
+
+.result-container .progress-fill {
+  height: 100%;
+  transition: width 0.3s linear, background-color 0.3s ease;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+  text-align: center; /* Center percentage text */
+  line-height: 20px; /* Match height for vertical centering */
+  color: #fff; /* White text for contrast with colored backgrounds */
+  display: block !important; /* Force display with high specificity */
+  visibility: visible !important; /* Force visibility with high specificity */
+}
+
+.result-container .progress-fill.low-risk {
+  background-color: #28a745; /* Green for Low Risk (<30%) */
+}
+
+.result-container .progress-fill.medium-risk {
+  background-color: #ffc107; /* Yellow/orange for Medium Risk (30%-49%) */
+}
+
+.result-container .progress-fill.high-risk {
+  background-color: #dc3545; /* Red for High Risk (50%+) */
+}
+
+.result-container .progress-fill.analyzing {
+  background-color: #007bff; /* Blue for analyzing */
+}
+
+/* Animation for highlights (optional, but enhances visibility) */
 @keyframes highlightPulse {
   0% {
     background-color: #ffff99;
+    box-shadow: 0 0 3px rgba(255, 255, 0, 0.5);
   }
   100% {
     background-color: #ffeb3b;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
+/* Updated Styles for Tip List Alignment */
+.tips ul {
+  list-style: none; /* Remove default list bullets */
+  padding-left: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
 }
 
+.tips li {
+  margin-bottom: 10px; /* Consistent spacing between items */
+  padding-left: 20px; /* Space for icons */
+  position: relative; /* For icon positioning */
+  line-height: 1.5; /* Better readability */
+  font-size: 1em; /* Consistent font size */
+  text-align: left; /* Ensure left alignment */
+  color: #fff; /* White text for tips */
+}
+
+.tips li a {
+  color: #dc3545; /* Red for links, matching theme */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease; /* Smooth color transition */
+  word-wrap: break-word; /* Allow long URLs to wrap */
+  display: inline-block; /* Ensure links behave as blocks for wrapping */
+  max-width: 100%; /* Prevent overflow */
+}
+
+.tips li a:hover {
+  color: #ff0000; /* Darker red on hover */
+  text-decoration: underline; /* Add underline on hover */
+}
+
+.tip-icon {
+  position: absolute; /* Position icons absolutely within li */
+  left: 0; /* Align icons to the left */
+  color: #ff0000; /* Red icons, matching theme */
+  margin-right: 10px; /* Space between icon and text */
+}
+
+/* Responsive Adjustments for Mobile */
 @media (max-width: 600px) {
-  body {
-    padding: 10px;
+  .input-form textarea {
+    max-width: 100%; /* Full width on mobile */
+    margin: 10px 0; /* Adjust margins for smaller screens */
   }
-  .header-title {
-    font-size: 1.5em;
+
+  .tips li {
+    padding-left: 15px; /* Reduce padding for icons on mobile */
+    font-size: 0.9em; /* Slightly smaller font for mobile */
+    margin-bottom: 8px; /* Reduce spacing on mobile */
   }
-  .intro-text,
-  .input-form,
-  .result-container,
-  .upload-section,
-  .progress-bar,
-  .tips,
-  .feedback-section {
-    margin: 10px;
-    padding: 10px;
-  }
-  textarea {
-    height: 150px;
-  }
-  button {
-    padding: 10px 18px;
-    font-size: 14px;
-  }
+
   .tip-icon {
-    font-size: 1em;
+    margin-right: 8px; /* Reduce spacing between icon and text on mobile */
   }
+}
+
+/* Changelog Styles */
+.changelog {
+  background-color: #1a1a1a;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  color: #fff;
+  text-align: left;
+}
+
+.changelog h3 {
+  color: #fff;
+  margin-top: 0;
+}
+
+.changelog p {
+  margin: 5px 0;
+}
+
+.changelog a {
+  color: #dc3545;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.changelog a:hover {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+/* Disclaimer Styles */
+.disclaimer {
+  color: #ccc;
+  font-style: italic;
+  margin-top: 15px;
+  font-size: 0.9em;
 }

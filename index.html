@@ -3,133 +3,121 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scam Checker - Digital Scam Alert</title>
-    <meta
-      name="description"
-      content="Protect yourself from AI scams, phishing, and fraud in 2025 with Prakash Suvedi’s Digital Scam Alert Scam Checker. Check emails, texts, images, and social posts in any language for suspicious content now!"
-    />
-    <meta
-      name="keywords"
-      content="scam checker, AI scams, phishing 2025, cybersecurity trends 2025, online safety, Nepal scams, scam prevention, image scam detection, social media scams, Prakash Suvedi"
-    />
+    <title>Scam Email Checker by Prakash Suvedi</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <!-- Add your logo as a favicon -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-    <!-- For social and safety icons -->
+    <!-- Load Tesseract.js and compromise.js from CDN with local fallbacks -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.1/dist/tesseract.min.js"
+      onload="console.log('Tesseract.js loaded from CDN')"
+      onerror="loadLocalFallback('tesseract.min.js', 'local/tesseract.min.js')"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/compromise@latest/builds/compromise.min.js"
+      onload="console.log('Compromise.js loaded from CDN')"
+      onerror="loadLocalFallback('compromise.min.js', 'local/compromise.min.js')"
+    ></script>
+    <script>
+      function loadLocalFallback(cdnFile, localFile) {
+        console.error(
+          `Failed to load ${cdnFile} from CDN. Attempting local fallback.`
+        );
+        const script = document.createElement("script");
+        script.src = localFile;
+        script.onload = () =>
+          console.log(`${cdnFile} loaded from local fallback`);
+        script.onerror = () =>
+          console.error(`Failed to load ${cdnFile} from local fallback`);
+        document.head.appendChild(script);
+      }
+    </script>
+    <script src="script.js" defer></script>
   </head>
   <body>
     <header>
-      <h1 class="header-title">Scam Checker by Prakash Suvedi</h1>
+      <h1 class="header-title">Scam Email Checker</h1>
     </header>
     <main>
       <p class="intro-text">
-        Analyze suspicious emails, texts, images, or social posts for scam
-        indicators, including AI scams, Nepal-specific fraud, and social media
-        threats, created by Prakash Suvedi.
+        Protect yourself from scams by analyzing emails, SMS, or social posts.
+        Powered by xAI and developed by Prakash Suvedi.
       </p>
 
-      <!-- Image Upload Section -->
       <div class="upload-section">
         <label for="imageUpload"
           >Upload Screenshot or Image (e.g., email, SMS, social post):</label
         >
-        <input
-          type="file"
-          id="imageUpload"
-          accept="image/png, image/jpeg"
-          aria-label="Upload image for scam analysis"
-        />
+        <input type="file" id="imageUpload" accept="image/png, image/jpeg" />
         <div id="imagePreview" class="image-preview"></div>
       </div>
 
-      <!-- Text and Email Input Section -->
-      <form
-        id="scamCheckerForm"
-        class="input-form"
-        aria-label="Scam Checker Form"
-      >
+      <form id="scamCheckerForm" class="input-form">
         <label for="emailContent">Enter Text, Email, or URL Manually:</label>
         <textarea
           id="emailContent"
-          name="emailContent"
           placeholder="Paste text, email, URL, or social post here (e.g., SMS, chat, any language)... Check for scams!"
-          rows="6"
-          aria-required="true"
         ></textarea>
         <label for="emailId">Enter Email ID (Optional):</label>
         <input
           type="email"
           id="emailId"
-          name="emailId"
           placeholder="e.g., sender@example.com"
-          aria-label="Enter email ID for analysis"
         />
-        <button type="submit" aria-label="Check for Scams">
-          Check for Scams
-        </button>
+        <button type="submit">Check for Scams</button>
       </form>
-      <div id="progressBar" class="progress-bar" style="display: none">
-        <div id="progressFill" class="progress-fill"></div>
+
+      <div class="upload-section">
+        <label for="reportedScamsUpload"
+          >Upload Reported Scams File (.txt or .docx):</label
+        >
+        <input type="file" id="reportedScamsUpload" accept=".txt, .docx" />
+        <button id="checkReportedBtn">Check Against Reported Scams</button>
       </div>
-      <div class="result-container" id="result" aria-live="polite">
-        <!-- Results will be displayed here -->
+
+      <div id="result" class="result-container">
+        <!-- Dynamic content (including the feedback button) will be inserted here by displayResults -->
       </div>
+
       <div id="feedbackSection" class="feedback-section" style="display: none">
         <h3>Provide Feedback</h3>
         <label for="firstName">First Name (Optional):</label>
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          placeholder="Your first name"
-          aria-label="First name (optional)"
-        />
+        <input type="text" id="firstName" />
         <label for="lastName">Last Name (Optional):</label>
-        <input
-          type="text"
-          id="lastName"
-          name="lastName"
-          placeholder="Your last name"
-          aria-label="Last name (optional)"
-        />
-        <label for="feedbackEmail">Email ID (Optional):</label>
-        <input
-          type="email"
-          id="feedbackEmail"
-          name="feedbackEmail"
-          placeholder="Your email (optional)"
-          aria-label="Email ID (optional)"
-        />
-        <label for="feedbackText">Feedback Text (Required):</label>
-        <textarea
-          id="feedbackText"
-          placeholder="Share your feedback or suggestions..."
-          rows="4"
-          aria-label="Feedback text (required)"
-          required
-        ></textarea>
-        <button id="sendFeedback" aria-label="Send Feedback">
-          Send Feedback
-        </button>
+        <input type="text" id="lastName" />
+        <label for="feedbackEmail">Email (Optional):</label>
+        <input type="email" id="feedbackEmail" />
+        <label for="feedbackText">Your Feedback:</label>
+        <textarea id="feedbackText"></textarea>
+        <button id="sendFeedback">Send Feedback</button>
         <p id="feedbackStatus"></p>
       </div>
     </main>
     <footer>
       <p>
-        © 2025 Digital Scam Alert. Developed by Prakash Suvedi. Follow us on X:
+        © 2025 Prakash Suvedi |
+        <a href="https://digitalscamalert.com" target="_blank">Learn More</a> |
         <a href="https://x.com/digitalscamalert" target="_blank"
-          >@digitalscamalert</a
+          >Follow Us on X</a
         >
       </p>
     </footer>
-    <script src="https://unpkg.com/tesseract.js@v2.1.1/dist/tesseract.min.js"></script>
-    <!-- OCR Library -->
-    <script src="https://unpkg.com/compromise"></script>
-    <!-- NLP Library -->
-    <script src="script.js"></script>
+
+    <div class="changelog">
+      <h3>What's New</h3>
+      <p>
+        February 22, 2025: Improved sentence-level scam detection, enhanced
+        African inheritance scam analysis, and refined risk scoring for
+        accuracy. Check
+        <a
+          href="https://github.com/prakashsuvedi/scamemailchecker/commits/main"
+          target="_blank"
+          >GitHub commits</a
+        >
+        for details.
+      </p>
+    </div>
   </body>
 </html>
