@@ -518,3 +518,42 @@ footer a:hover {
   margin-top: 15px;
   font-size: 0.9em;
 }
+/* Ensure progress bar remains visible with final risk score and stays in result-container */
+.result-container .progress-bar {
+  max-width: 600px;
+  margin: 15px 0; /* Space above and below the progress bar within result-container */
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: block !important; /* Force display with high specificity */
+  visibility: visible !important; /* Force visibility with high specificity */
+}
+
+.result-container .progress-fill {
+  height: 100%;
+  transition: width 0.3s linear, background-color 0.3s ease;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+  text-align: center; /* Center percentage text */
+  line-height: 20px; /* Match height for vertical centering */
+  color: #fff; /* White text for contrast with colored backgrounds */
+  display: block !important; /* Force display with high specificity */
+  visibility: visible !important; /* Force visibility with high specificity */
+}
+
+.result-container .progress-fill.low-risk {
+  background-color: #28a745; /* Green for Low Risk (<30%) */
+}
+
+.result-container .progress-fill.medium-risk {
+  background-color: #ffc107; /* Yellow/orange for Medium Risk (30%-49%) */
+}
+
+.result-container .progress-fill.high-risk {
+  background-color: #dc3545; /* Red for High Risk (50%+) */
+}
+
+.result-container .progress-fill.analyzing {
+  background-color: #007bff; /* Blue for analyzing */
+}
