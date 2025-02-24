@@ -16,7 +16,8 @@
     "serve": "11.2.0"
   },
   "dependencies": {
+    "tesseract.js": "6.0.0",
     "compromise": "14.14.4",
-    "@tensorflow/tfjs-core": "4.22.0"
+    "cors": "2.8.5"
   }
 }

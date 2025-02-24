@@ -1,85 +1,347 @@
+/* Base Styles */
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* Black background for theme */
+  color: #fff; /* White text for contrast */
+  line-height: 1.6;
 }
 
-textarea {
-  width: 100%;
-  height: 200px;
-  padding: 10px;
-  font-size: 16px;
+header {
+  background-color: #dc3545; /* Red header for theme */
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  animation: slideDown 0.5s ease-in;
 }
 
-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+.header-title {
+  color: #fff; /* White text for contrast */
+  margin: 0;
+  font-size: 2em;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow */
 }
 
-.result {
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  animation: fadeIn 0.5s ease-in;
 }
 
-.highlight {
-  background-color: yellow;
+.intro-text {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff; /* White text for contrast */
+  font-size: 1.1em;
+}
+
+.upload-section,
+.input-form {
+  background-color: #1a1a1a; /* Dark gray background for contrast */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  margin-bottom: 20px;
+  animation: slideUp 0.5s ease-in;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #fff; /* White text for contrast */
   font-weight: bold;
 }
 
-.risk-low {
-  color: green;
-}
-
-.risk-medium {
-  color: orange;
-}
-
-.risk-high {
-  color: red;
-}
-
-.risk-bar {
+input[type="file"],
+input[type="email"],
+textarea {
   width: 100%;
-  height: 20px;
-  background-color: #f0f0f0;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 10px 0;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  font-size: 1em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #fff; /* White background for contrast */
+  color: #000; /* Black text for readability */
 }
 
-.risk-bar-fill {
-  height: 100%;
-  transition: width 0.5s ease;
+input[type="file"] {
+  border: 1px solid #dc3545; /* Red border for file input */
+  transition: border-color 0.3s ease;
 }
-/* Button Styling */
+
+input[type="file"]:hover {
+  border-color: #ff0000; /* Darker red on hover */
+}
+
+input[type="email"] {
+  border: 2px solid #dc3545; /* Red border for email input */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="email"]:focus {
+  outline: none;
+  border-color: #ff0000; /* Darker red on focus */
+  box-shadow: 0 0 8px rgba(220, 53, 69, 0.5); /* Enhanced shadow on focus */
+}
+
+/* Updated Styles for Textarea Border */
+.input-form textarea {
+  width: 100%;
+  max-width: 600px; /* Limit width for better mobile responsiveness */
+  min-height: 150px; /* Ensure enough space for text */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #dc3545; /* Red border for consistency with theme */
+  border-radius: 8px; /* Rounded corners for modern look */
+  font-size: 1em;
+  resize: vertical; /* Allow vertical resizing only */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background-color: #fff; /* White background for contrast */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.input-form textarea:focus {
+  outline: none; /* Remove default outline */
+  border-color: #ff0000; /* Darker red on focus */
+  box-shadow: 0 0 8px rgba(220, 53, 69, 0.5); /* Enhanced shadow on focus */
+}
+
 button {
-  margin-top: 10px;
+  background-color: #dc3545; /* Red button for theme */
+  color: #fff; /* White text for contrast */
   padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #007bff; /* Blue background */
-  color: white; /* White text */
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover Effect */
 button:hover {
+  background-color: #ff0000; /* Darker red on hover */
+  transform: scale(1.05); /* Slight scale for interaction */
+}
+
+button:disabled {
+  background-color: #6c757d; /* Gray for disabled state */
+  cursor: not-allowed;
+}
+
+.loading {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: spin 1s linear infinite;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.image-preview {
+  max-width: 100%;
+  margin-top: 10px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+.image-preview img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.result-container {
+  background-color: #1a1a1a; /* Dark gray background for contrast */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  margin-top: 20px;
+  display: none;
+  animation: slideUp 0.5s ease-in;
+}
+
+.result {
+  color: #fff; /* White text for contrast */
+  text-align: left; /* Left-aligned results */
+}
+
+.result.high-risk {
+  color: #dc3545; /* Red for high risk */
+}
+
+.result.medium-risk {
+  color: #ffc107; /* Yellow/orange for medium risk */
+}
+
+.result.low-risk {
+  color: #28a745; /* Green for low risk */
+}
+
+.language-note {
+  font-style: italic;
+  color: #ccc; /* Light gray for notes */
+  margin-top: 10px;
+}
+
+.domain-high {
+  color: #dc3545; /* Red for high-risk domains */
+  font-weight: bold;
+}
+
+.domain-low {
+  color: #28a745; /* Green for low-risk domains */
+  font-weight: bold;
+}
+
+.rate-limit-warning {
+  color: #ffc107; /* Yellow/orange for warnings */
+  font-style: italic;
+}
+
+.platform-note {
+  color: #fff; /* White text for platform notes */
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.platform-icon {
+  margin-right: 5px;
+}
+
+.feedback-section {
+  background-color: #1a1a1a; /* Dark gray background for contrast */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  margin-top: 20px;
+  animation: slideUp 0.5s ease-in;
+}
+
+.feedback-section h3 {
+  color: #fff; /* White text for contrast */
+  margin-top: 0;
+}
+
+.feedback-section label {
+  color: #fff; /* White text for contrast */
+  margin-bottom: 5px;
+}
+
+.feedback-section input,
+.feedback-section textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #dc3545; /* Red border for feedback inputs */
+  border-radius: 4px;
+  font-size: 1em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #fff; /* White background for contrast */
+  color: #000; /* Black text for readability */
+}
+
+.feedback-section textarea {
+  min-height: 100px;
+  resize: vertical; /* Allow vertical resizing only */
+}
+
+#sendFeedback {
+  background-color: #dc3545; /* Red button for theme */
+  color: #fff; /* White text for contrast */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.feedback-btn {
+  background-color: #007bff; /* Blue for feedback button */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s;
+}
+
+.feedback-btn:hover {
   background-color: #0056b3; /* Darker blue on hover */
-  transform: scale(1.05); /* Slightly enlarge the button */
+}
+#sendFeedback:hover {
+  background-color: #ff0000; /* Darker red on hover */
+  transform: scale(1.05); /* Slight scale for interaction */
 }
 
-/* Active Effect (when clicked) */
-button:active {
-  background-color: #004080; /* Even darker blue when clicked */
-  transform: scale(0.95); /* Slightly shrink the button */
+#feedbackStatus {
+  color: #fff; /* White text for contrast */
+  margin-top: 10px;
+  text-align: center;
 }
 
-/* Loading Animation */
+footer {
+  background-color: #dc3545; /* Red footer for theme */
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  animation: slideUp 0.5s ease-in;
+}
+
+footer p {
+  margin: 0;
+  color: #fff; /* White text for contrast */
+}
+
+footer a {
+  color: #fff; /* White links for contrast */
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ff0000; /* Red on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -89,13 +351,170 @@ button:active {
   }
 }
 
-.loading {
-  display: inline-block;
-  width: 20px;
+/* Ensure highlighted content is visible and readable */
+.highlighted-content {
+  border: 2px solid #ccc;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #333; /* Dim black (dark gray) for non-highlighted text, readable on white */
+}
+
+/* Restore highlighted text visibility with black text on yellow background */
+.highlighted-content .highlight,
+.highlighted-content .highlight-sentence {
+  color: #000; /* Black text for highlighted words/phrases for readability */
+  background-color: #ffff99; /* Light yellow for keywords/phrases */
+  font-weight: bold;
+  padding: 2px;
+  border-radius: 2px;
+  animation: highlightPulse 1s infinite alternate;
+  box-shadow: 0 0 3px rgba(255, 255, 0, 0.5); /* Subtle shadow for highlights */
+}
+
+/* Ensure progress bar remains visible with final risk score and stays in result-container */
+.result-container .progress-bar {
+  max-width: 600px;
+  margin: 15px 0; /* Space above and below the progress bar within result-container */
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
   height: 20px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-top: 3px solid white;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-left: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: block !important; /* Force display with high specificity */
+  visibility: visible !important; /* Force visibility with high specificity */
+}
+
+.result-container .progress-fill {
+  height: 100%;
+  transition: width 0.3s linear, background-color 0.3s ease;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+  text-align: center; /* Center percentage text */
+  line-height: 20px; /* Match height for vertical centering */
+  color: #fff; /* White text for contrast with colored backgrounds */
+  display: block !important; /* Force display with high specificity */
+  visibility: visible !important; /* Force visibility with high specificity */
+}
+
+.result-container .progress-fill.low-risk {
+  background-color: #28a745; /* Green for Low Risk (<30%) */
+}
+
+.result-container .progress-fill.medium-risk {
+  background-color: #ffc107; /* Yellow/orange for Medium Risk (30%-49%) */
+}
+
+.result-container .progress-fill.high-risk {
+  background-color: #dc3545; /* Red for High Risk (50%+) */
+}
+
+.result-container .progress-fill.analyzing {
+  background-color: #007bff; /* Blue for analyzing */
+}
+
+/* Animation for highlights (optional, but enhances visibility) */
+@keyframes highlightPulse {
+  0% {
+    background-color: #ffff99;
+    box-shadow: 0 0 3px rgba(255, 255, 0, 0.5);
+  }
+  100% {
+    background-color: #ffeb3b;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+  }
+}
+
+/* Updated Styles for Tip List Alignment */
+.tips ul {
+  list-style: none; /* Remove default list bullets */
+  padding-left: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.tips li {
+  margin-bottom: 10px; /* Consistent spacing between items */
+  padding-left: 20px; /* Space for icons */
+  position: relative; /* For icon positioning */
+  line-height: 1.5; /* Better readability */
+  font-size: 1em; /* Consistent font size */
+  text-align: left; /* Ensure left alignment */
+  color: #fff; /* White text for tips */
+}
+
+.tips li a {
+  color: #dc3545; /* Red for links, matching theme */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease; /* Smooth color transition */
+  word-wrap: break-word; /* Allow long URLs to wrap */
+  display: inline-block; /* Ensure links behave as blocks for wrapping */
+  max-width: 100%; /* Prevent overflow */
+}
+
+.tips li a:hover {
+  color: #ff0000; /* Darker red on hover */
+  text-decoration: underline; /* Add underline on hover */
+}
+
+.tip-icon {
+  position: absolute; /* Position icons absolutely within li */
+  left: 0; /* Align icons to the left */
+  color: #ff0000; /* Red icons, matching theme */
+  margin-right: 10px; /* Space between icon and text */
+}
+
+/* Responsive Adjustments for Mobile */
+@media (max-width: 600px) {
+  .input-form textarea {
+    max-width: 100%; /* Full width on mobile */
+    margin: 10px 0; /* Adjust margins for smaller screens */
+  }
+
+  .tips li {
+    padding-left: 15px; /* Reduce padding for icons on mobile */
+    font-size: 0.9em; /* Slightly smaller font for mobile */
+    margin-bottom: 8px; /* Reduce spacing on mobile */
+  }
+
+  .tip-icon {
+    margin-right: 8px; /* Reduce spacing between icon and text on mobile */
+  }
+}
+
+/* Changelog Styles */
+.changelog {
+  background-color: #1a1a1a;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  color: #fff;
+  text-align: left;
+}
+
+.changelog h3 {
+  color: #fff;
+  margin-top: 0;
+}
+
+.changelog p {
+  margin: 5px 0;
+}
+
+.changelog a {
+  color: #dc3545;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.changelog a:hover {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+/* Disclaimer Styles */
+.disclaimer {
+  color: #ccc;
+  font-style: italic;
+  margin-top: 15px;
+  font-size: 0.9em;
 }
