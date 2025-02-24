@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Extract text using Tesseract.js with debugging and progress
     checkButton.disabled = true;
-    checkButton.innerHTML = 'Extracting Text <div class="loading"></div>';
+    checkButton.innerHTML = 'Extracting text, please wait, be patient <div class="loading"></div>';
     console.log("Starting image extraction, showing progress bar...");
     showProgress(0); // Initial call to create or show the progress bar
 
