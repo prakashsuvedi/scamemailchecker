@@ -17,7 +17,7 @@ function escapeRegExp(string) {
 }
 
 // Server URL for communication with the back-end
-const SERVER_URL = "https://18.221.1.19:3000"; // Updated to AWS URL
+const SERVER_URL = "https://scam-email-checker.digitalscamalert.com"; // Updated to AWS URL
 
 // Toggle feedback section (moved outside DOMContentLoaded for global access)
 function toggleFeedback() {
