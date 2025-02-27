@@ -1541,7 +1541,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return highlighted;
   }
 
-  // Functions for reported scam analysis (new functionality)
+  // Functions for reported scam analysis (new functionality, updated for CRLF)
   async function uploadReportedScams(file) {
     const formData = new FormData();
     formData.append("scamFile", file);
@@ -1571,7 +1571,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch(`${SERVER_URL}/check-reported`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ input }),
+        body: JSON.stringify({ input: input.replace(/\r/g, '').trim().toLowerCase().replace(/[^\w\s.]/g, '').replace(/\s+/g, ' ') }),
       });
       const data = await response.json();
       if (data.isReported) {
