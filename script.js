@@ -1571,7 +1571,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch(`${SERVER_URL}/check-reported`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ input: input.replace(/\r/g, '').trim().toLowerCase().replace(/[^\w\s.]/g, '').replace(/\s+/g, ' ') }),
+        body: JSON.stringify({ input: input.replace(/\r/g, '').trim().toLowerCase().replace(/[^\w\s.]/g, '').replace(/\s+/g, ' ').replace(/\u00A0/g, ' ') }),
       });
       const data = await response.json();
       if (data.isReported) {
